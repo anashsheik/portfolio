@@ -135,19 +135,12 @@ const NAV = ["Om meg", "Ferdigheter", "Prosjekter", "Utdanning", "Anmeldelser", 
 const NAV_IDS = ["om-meg", "ferdigheter", "prosjekter", "utdanning", "anmeldelser", "kontakt"];
 
 const REVIEWS = [
-  {
-    name: "Prof. Emilie T.",
-    role: "Professor, Anvendt matematikk",
-    date: "Des 2025",
-    stars: 5,
-    title: "Imponerende studentarbeid",
-    text: "Anas leverte et svært solid arbeid med Schrödinger-ligningen på en ringgeometri. Løsningen var elegant, godt strukturert og viste en modenhet i tilnærmingen som man sjelden ser hos bachelorstudenter. Et arbeid å være stolt av.",
-  },
+  
   {
     name: "Kristian M.",
     role: "Medstudent & Researcher hos UiO",
     date: "Mar 2026",
-    stars: 4,
+    stars: 5,
     title: "Utrolig dyktig og hjelpsom",
     text: "Anas hjalp meg med et maskinlæringsprosjekt der vi skulle klassifisere medisinske data. Han har en sjelden evne til å forklare kompliserte konsepter på en enkel måte, og koden hans er alltid ryddig og godt dokumentert.",
   },
@@ -179,9 +172,17 @@ const REVIEWS = [
     name: "Nadia B.",
     role: "Data Science-student, NTNU",
     date: "Okt 2025",
-    stars: 5,
+    stars: 4,
     title: "Inspirerende å jobbe med",
     text: "Anas og jeg samarbeidet på et kundefrafall-prosjekt. Han tok seg tid til å forklare valgene sine underveis og var alltid åpen for innspill. Resultatet ble et prosjekt vi begge var stolte av. En person som virkelig løfter kvaliteten på alt han er involvert i.",
+  },
+  {
+    name: "Prof. Emilie T.",
+    role: "Professor, Anvendt matematikk",
+    date: "Des 2025",
+    stars: 5,
+    title: "Imponerende studentarbeid",
+    text: "Anas leverte et svært solid arbeid med Schrödinger-ligningen på en ringgeometri. Løsningen var elegant, godt strukturert og viste en modenhet i tilnærmingen som man sjelden ser hos bachelorstudenter. Et arbeid å være stolt av.",
   },
 ];
 
