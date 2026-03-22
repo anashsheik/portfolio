@@ -462,7 +462,7 @@ export default function Portfolio() {
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p style={{ fontSize: "clamp(16px, 2.5vw, 22px)", color: t.textMuted, fontWeight: 300, marginBottom: 8 }}>
-                  Data Science & ML Student · Uteksamineres 2026
+                  Data Science & Math Mod. · Bachelor's
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
