@@ -161,6 +161,14 @@ const REVIEWS = [
     text: "Anas var virkelig den gruppelederen alle ønsker seg. Han holdt oss organisert, sørget for at alle ble hørt, og tok ansvar når det trengtes. Samtidig var han ydmyk nok til å la andre skinne. Prosjektet ble mye bedre takket være hans ledelse.",
   },
   {
+    name: "Prof. Emilie T.",
+    role: "Professor, Anvendt matematikk",
+    date: "Des 2025",
+    stars: 5,
+    title: "Imponerende studentarbeid",
+    text: "Anas leverte et svært solid arbeid med Schrödinger-ligningen på en ringgeometri. Løsningen var elegant, godt strukturert og viste en modenhet i tilnærmingen som man sjelden ser hos bachelorstudenter. Et arbeid å være stolt av.",
+  },
+  {
     name: "Robert K.",
     role: "Juniorutvikler hos NBIM",
     date: "Nov 2025",
@@ -176,14 +184,7 @@ const REVIEWS = [
     title: "Inspirerende å jobbe med",
     text: "Anas og jeg samarbeidet på et kundefrafall-prosjekt. Han tok seg tid til å forklare valgene sine underveis og var alltid åpen for innspill. Resultatet ble et prosjekt vi begge var stolte av. En person som virkelig løfter kvaliteten på alt han er involvert i.",
   },
-  {
-    name: "Prof. Emilie T.",
-    role: "Professor, Anvendt matematikk",
-    date: "Des 2025",
-    stars: 5,
-    title: "Imponerende studentarbeid",
-    text: "Anas leverte et svært solid arbeid med Schrödinger-ligningen på en ringgeometri. Løsningen var elegant, godt strukturert og viste en modenhet i tilnærmingen som man sjelden ser hos bachelorstudenter. Et arbeid å være stolt av.",
-  },
+  
 ];
 
 // ─── Contact Form (Formspree) ───
