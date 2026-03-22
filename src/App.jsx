@@ -92,6 +92,12 @@ const Icons = {
   calendar: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
   ),
+  star: (filled, color) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill={filled ? color : "none"} stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  ),
+  quote: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" opacity="0.15"><path d="M11 7H7a4 4 0 0 0-4 4v0a4 4 0 0 0 4 4h1a1 1 0 0 1 1 1v1a3 3 0 0 1-3 3H5M21 7h-4a4 4 0 0 0-4 4v0a4 4 0 0 0 4 4h1a1 1 0 0 1 1 1v1a3 3 0 0 1-3 3h-1"/></svg>
+  ),
 };
 
 // ─── Data ───
@@ -125,8 +131,43 @@ const SKILLS = {
   "Annet": ["Datavisualisering", "Statistisk modellering", "Nettverksprogrammering"],
 };
 
-const NAV = ["Om meg", "Ferdigheter", "Prosjekter", "Utdanning", "Kontakt"];
-const NAV_IDS = ["om-meg", "ferdigheter", "prosjekter", "utdanning", "kontakt"];
+const NAV = ["Om meg", "Ferdigheter", "Prosjekter", "Utdanning", "Anmeldelser", "Kontakt"];
+const NAV_IDS = ["om-meg", "ferdigheter", "prosjekter", "utdanning", "anmeldelser", "kontakt"];
+
+const REVIEWS = [
+  {
+    name: "Prof. Emilie T.",
+    role: "Professor, Anvendt matematikk",
+    date: "Des 2025",
+    stars: 5,
+    title: "Imponerende studentarbeid",
+    text: "Anas leverte et svært solid arbeid med Schrödinger-ligningen på en ringgeometri. Løsningen var elegant, godt strukturert og viste en modenhet i tilnærmingen som man sjelden ser hos bachelorstudenter. Et arbeid å være stolt av.",
+  },
+  {
+    name: "Kristian M.",
+    role: "Medstudent & Reseacher hos UiO",
+    date: "Mar 2026",
+    stars: 4,
+    title: "Utrolig dyktig og hjelpsom",
+    text: "Anas hjalp meg med et maskinlæringsprosjekt der vi skulle klassifisere medisinske data. Han har en sjelden evne til å forklare kompliserte konsepter på en enkel måte, og koden hans er alltid ryddig og godt dokumentert.",
+  },
+  {
+    name: "Sara L.",
+    role: "PhD. kandidat ",
+    date: "Feb 2026",
+    stars: 4,
+    title: "Engasjerende og imponerende arbeid",
+    text: "Jeg kom over Anas sitt F1-prosjekt og ble virkelig imponert. Resultatene var presentert på en måte som gjorde det lett å forstå hva som faktisk påvirker raceresultatene. Man ser tydelig at han brenner for det han gjør — det smitter over!",
+  },
+  {
+    name: "Yad Salihi",
+    role: "Byggingeniørstudent",
+    date: "Jan 2026",
+    stars: 5,
+    title: "En gruppeleder alle ønsker seg",
+    text: "Anas var virkelig den gruppelederen alle ønsker seg. Han holdt oss organisert, sørget for at alle ble hørt, og tok ansvar når det trengtes. Samtidig var han ydmyk nok til å la andre skinne. Prosjektet ble mye bedre takket være hans ledelse.",
+  },
+];
 
 // ─── Contact Form (Formspree) ───
 function ContactForm({ t, dark }) {
@@ -141,7 +182,7 @@ function ContactForm({ t, dark }) {
 
     setStatus("sending");
     try {
-      const res = await fetch("https://formspree.io/f/mdawvbaj", {
+      const res = await fetch("[SETT INN FORMSPREE-URL, f.eks. https://formspree.io/f/xyzabc12]", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -340,8 +381,7 @@ export default function Portfolio() {
         transition: "all 0.3s",
       }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 800, cursor: "pointer", letterSpacing: "-0.5px" }}>
-            A<span style={{ color: t.accent }}>.</span>S
+          <span onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} style={{ width: 28, cursor: "pointer" }}>
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: 28 }} className="desktop-nav">
             {NAV.map((n, i) => (
@@ -442,12 +482,13 @@ export default function Portfolio() {
                 <div className="hero-photo-ring" />
                 <div className="hero-photo">
                   {/* ═══ BYTT UT: Legg inn ditt eget bilde her ═══
-                       Alternativ A — Bilde-URL:
-                         <img src="https://ditt-bilde.jpg" alt="Anas H. Sheik" />
-                       Alternativ B — Lokal fil:
-                         <img src="./photo.jpg" alt="Anas H. Sheik" />
+                       Slett hele SVG-blokken nedenfor og erstatt med:
+                         <img src="/photo.png" alt="Anas H. Sheik" />
                   ═══ */}
-                  <img src="/photo.png" alt="Anas H. Sheik" />
+                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke={t.textMuted} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4 }}>
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
                 </div>
               </div>
             </FadeIn>
@@ -546,7 +587,7 @@ export default function Portfolio() {
                   Bachelor i Mathematical Modelling & Data Science
                 </h3>
                 <p style={{ fontSize: 14.5, color: t.textMuted, marginBottom: 14 }}>
-                  [Oslo Metropolitan University] — Norge
+                  [Ditt universitetsnavn] — Norge
                 </p>
                 <p style={{ fontSize: 14, color: t.textMuted, fontWeight: 500, marginBottom: 8 }}>Relevante fag:</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
@@ -560,8 +601,76 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* ═══ ANMELDELSER ═══ */}
+      <section id="anmeldelser" style={{ background: t.bgAlt }}>
+        <div className="section">
+          <FadeIn>
+            <p className="section-label">Anmeldelser</p>
+            <h2 className="section-title">Hva andre sier</h2>
+          </FadeIn>
+
+          {/* Rating overview */}
+          <FadeIn delay={0.1}>
+            <div className="card" style={{ display: "flex", gap: 32, alignItems: "center", marginBottom: 24, flexWrap: "wrap" }}>
+              <div style={{ textAlign: "center", minWidth: 100 }}>
+                <div style={{ fontSize: 48, fontWeight: 800, fontFamily: "'Playfair Display', serif", lineHeight: 1 }}>5.0</div>
+                <div style={{ display: "flex", gap: 3, justifyContent: "center", margin: "8px 0 4px" }}>
+                  {[1,2,3,4,5].map(i => <span key={i}>{Icons.star(true, "#facc15")}</span>)}
+                </div>
+                <p style={{ fontSize: 12.5, color: t.textMuted }}>Basert på {REVIEWS.length} anmeldelser</p>
+              </div>
+              <div style={{ flex: 1, minWidth: 200 }}>
+                {[5,4,3,2,1].map(stars => {
+                  const count = REVIEWS.filter(r => r.stars === stars).length;
+                  const pct = REVIEWS.length > 0 ? (count / REVIEWS.length) * 100 : 0;
+                  return (
+                    <div key={stars} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                      <span style={{ fontSize: 12, color: t.textMuted, width: 12, textAlign: "right" }}>{stars}</span>
+                      <span>{Icons.star(true, "#facc15")}</span>
+                      <div style={{ flex: 1, height: 8, background: dark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)", borderRadius: 4, overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: `${pct}%`, background: "#facc15", borderRadius: 4, transition: "width 0.6s ease" }} />
+                      </div>
+                      <span style={{ fontSize: 12, color: t.textMuted, width: 28 }}>{Math.round(pct)}%</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Individual reviews */}
+          <div style={{ display: "grid", gap: 16 }}>
+            {REVIEWS.map((r, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <div className="card" style={{ position: "relative" }}>
+                  <div style={{ position: "absolute", top: 20, right: 24, color: t.accent }}>{Icons.quote}</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                    <div style={{
+                      width: 40, height: 40, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
+                      background: `linear-gradient(135deg, ${t.accent}, ${dark ? "#6366f1" : "#0284c7"})`, color: "#fff", fontWeight: 700, fontSize: 15,
+                    }}>
+                      {r.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p style={{ fontWeight: 600, fontSize: 14.5 }}>{r.name}</p>
+                      <p style={{ fontSize: 12, color: t.textMuted }}>{r.role}</p>
+                    </div>
+                    <span style={{ marginLeft: "auto", fontSize: 12, color: t.textMuted }}>{r.date}</span>
+                  </div>
+                  <div style={{ display: "flex", gap: 2, marginBottom: 8 }}>
+                    {[1,2,3,4,5].map(s => <span key={s}>{Icons.star(s <= r.stars, "#facc15")}</span>)}
+                  </div>
+                  <h4 style={{ fontSize: 15, fontWeight: 700, marginBottom: 6, fontFamily: "'Playfair Display', serif" }}>{r.title}</h4>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: t.textMuted }}>{r.text}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ KONTAKT ═══ */}
-      <section id="kontakt" style={{ background: t.bgAlt }}>
+      <section id="kontakt">
         <div className="section">
           <FadeIn>
             <div style={{ textAlign: "center" }}>
@@ -580,7 +689,7 @@ export default function Portfolio() {
 
               {/* Booking + sosiale lenker */}
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                <a href="https://calendly.com/anashsheik/30min" target="_blank" rel="noopener noreferrer" className="card" style={{ textDecoration: "none", textAlign: "center", cursor: "pointer", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <a href="[SETT INN CALENDLY / BOOKING-LENKE]" target="_blank" rel="noopener noreferrer" className="card" style={{ textDecoration: "none", textAlign: "center", cursor: "pointer", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ color: t.accent, marginBottom: 12 }}>{Icons.calendar}</div>
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6, fontFamily: "'Playfair Display', serif" }}>Book et møte</h3>
                   <p style={{ fontSize: 13.5, color: t.textMuted }}>Velg et tidspunkt som passer, så tar vi en prat.</p>
