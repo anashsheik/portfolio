@@ -145,7 +145,7 @@ const REVIEWS = [
   },
   {
     name: "Kristian M.",
-    role: "Medstudent & Reseacher hos UiO",
+    role: "Medstudent & Researcher hos UiO",
     date: "Mar 2026",
     stars: 4,
     title: "Utrolig dyktig og hjelpsom",
@@ -153,7 +153,7 @@ const REVIEWS = [
   },
   {
     name: "Sara L.",
-    role: "PhD. kandidat ",
+    role: "PhD-kandidat",
     date: "Feb 2026",
     stars: 4,
     title: "Engasjerende og imponerende arbeid",
@@ -169,11 +169,19 @@ const REVIEWS = [
   },
   {
     name: "Robert K.",
-    role: "Juniorutvikler hos NBIM - Norges Bank Investment Management",
+    role: "Juniorutvikler hos NBIM",
     date: "Nov 2025",
     stars: 5,
     title: "Skarp, rask og løsningsorientert",
     text: "Jeg fikk Anas til å hjelpe med dataanalyse for et internt prosjekt. Han satte seg inn i problemet på rekordtid, bygde en ren pipeline og presenterte resultatene på en måte som selv ikke-tekniske folk forstod. Kommer definitivt til å samarbeide igjen.",
+  },
+  {
+    name: "Nadia B.",
+    role: "Data Science-student, NTNU",
+    date: "Okt 2025",
+    stars: 5,
+    title: "Inspirerende å jobbe med",
+    text: "Anas og jeg samarbeidet på et kundefrafall-prosjekt. Han tok seg tid til å forklare valgene sine underveis og var alltid åpen for innspill. Resultatet ble et prosjekt vi begge var stolte av. En person som virkelig løfter kvaliteten på alt han er involvert i.",
   },
 ];
 
@@ -190,7 +198,7 @@ function ContactForm({ t, dark }) {
 
     setStatus("sending");
     try {
-      const res = await fetch("[SETT INN FORMSPREE-URL, f.eks. https://formspree.io/f/xyzabc12]", {
+      const res = await fetch("https://formspree.io/f/mdawvbaj", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -333,6 +341,9 @@ export default function Portfolio() {
         accentSoft: "rgba(3,105,161,0.07)", text: "#0f172a", textMuted: "#64748b",
         border: "rgba(3,105,161,0.12)", glow: "0 2px 24px rgba(0,0,0,0.06)",
       };
+
+  // Dynamisk gjennomsnittsrating
+  const avgRating = (REVIEWS.reduce((sum, r) => sum + r.stars, 0) / REVIEWS.length).toFixed(1);
 
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: "100vh", fontFamily: "'Source Sans 3', 'Segoe UI', sans-serif", transition: "background 0.4s, color 0.4s" }}>
@@ -489,14 +500,7 @@ export default function Portfolio() {
                 <div className="hero-photo-glow" />
                 <div className="hero-photo-ring" />
                 <div className="hero-photo">
-                  {/* ═══ BYTT UT: Legg inn ditt eget bilde her ═══
-                       Slett hele SVG-blokken nedenfor og erstatt med:
-                         <img src="/photo.png" alt="Anas H. Sheik" />
-                  ═══ */}
-                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke={t.textMuted} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4 }}>
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                  </svg>
+                  <img src="/photo.png" alt="Anas H. Sheik" />
                 </div>
               </div>
             </FadeIn>
@@ -621,9 +625,9 @@ export default function Portfolio() {
           <FadeIn delay={0.1}>
             <div className="card" style={{ display: "flex", gap: 32, alignItems: "center", marginBottom: 24, flexWrap: "wrap" }}>
               <div style={{ textAlign: "center", minWidth: 100 }}>
-                <div style={{ fontSize: 48, fontWeight: 800, fontFamily: "'Playfair Display', serif", lineHeight: 1 }}>5.0</div>
+                <div style={{ fontSize: 48, fontWeight: 800, fontFamily: "'Playfair Display', serif", lineHeight: 1 }}>{avgRating}</div>
                 <div style={{ display: "flex", gap: 3, justifyContent: "center", margin: "8px 0 4px" }}>
-                  {[1,2,3,4,5].map(i => <span key={i}>{Icons.star(true, "#facc15")}</span>)}
+                  {[1,2,3,4,5].map(i => <span key={i}>{Icons.star(i <= Math.round(parseFloat(avgRating)), "#facc15")}</span>)}
                 </div>
                 <p style={{ fontSize: 12.5, color: t.textMuted }}>Basert på {REVIEWS.length} anmeldelser</p>
               </div>
@@ -697,7 +701,7 @@ export default function Portfolio() {
 
               {/* Booking + sosiale lenker */}
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                <a href="[SETT INN CALENDLY / BOOKING-LENKE]" target="_blank" rel="noopener noreferrer" className="card" style={{ textDecoration: "none", textAlign: "center", cursor: "pointer", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <a href="https://calendly.com/anashsheik/30min" target="_blank" rel="noopener noreferrer" className="card" style={{ textDecoration: "none", textAlign: "center", cursor: "pointer", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ color: t.accent, marginBottom: 12 }}>{Icons.calendar}</div>
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6, fontFamily: "'Playfair Display', serif" }}>Book et møte</h3>
                   <p style={{ fontSize: 13.5, color: t.textMuted }}>Velg et tidspunkt som passer, så tar vi en prat.</p>
