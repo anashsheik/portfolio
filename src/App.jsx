@@ -167,6 +167,14 @@ const REVIEWS = [
     title: "En gruppeleder alle ønsker seg",
     text: "Anas var virkelig den gruppelederen alle ønsker seg. Han holdt oss organisert, sørget for at alle ble hørt, og tok ansvar når det trengtes. Samtidig var han ydmyk nok til å la andre skinne. Prosjektet ble mye bedre takket være hans ledelse.",
   },
+  {
+    name: "Robert K.",
+    role: "Juniorutvikler hos NBIM - Norges Bank Investment Management",
+    date: "Nov 2025",
+    stars: 5,
+    title: "Skarp, rask og løsningsorientert",
+    text: "Jeg fikk Anas til å hjelpe med dataanalyse for et internt prosjekt. Han satte seg inn i problemet på rekordtid, bygde en ren pipeline og presenterte resultatene på en måte som selv ikke-tekniske folk forstod. Kommer definitivt til å samarbeide igjen.",
+  },
 ];
 
 // ─── Contact Form (Formspree) ───
