@@ -194,8 +194,8 @@ function Hero({ c }) {
         <a href="#prosjekter" className="btn btn-primary">
           {c.hero.ctaProjects}
         </a>
-        <a href={LINKS.calendly} className="btn btn-orange" {...ext}>
-          {c.hero.ctaMeeting}
+        <a href="#kontakt" className="btn btn-orange">
+          {c.hero.ctaMessage}
         </a>
       </div>
       <div className="hero-social">
@@ -356,8 +356,7 @@ function Education({ c }) {
           {ed.items.map((item) => (
             <div key={item.degree} className="edu-row rv">
               <div className="edu-years">
-                {item.from}
-                <span className={item.current ? "to-accent" : undefined}>{item.to}</span>
+                {item.from} {ed.until} <span className={item.current ? "to-accent" : undefined}>{item.to}</span>
               </div>
               <div className="edu-main">
                 <h3>{item.degree}</h3>
@@ -523,7 +522,6 @@ function Footer({ c }) {
         <div className="footer-col rv">
           <h4>{f.place}</h4>
           <p>
-            {Icons.pin(18)}
             {f.location}
           </p>
         </div>

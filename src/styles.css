@@ -251,7 +251,7 @@ a.btn-dashed:hover {
   flex-wrap: wrap;
   align-items: center;
   gap: 32px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -284,6 +284,10 @@ a.btn-dashed:hover {
   gap: 8px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.main-nav .lang-btn {
+  margin-left: 40px;
 }
 
 .lang-btn:hover,
@@ -869,7 +873,7 @@ a.btn-dashed:hover {
 }
 
 .edu-years {
-  flex: 0 0 260px;
+  flex: 0 0 310px;
   white-space: nowrap;
   font-family: var(--font-display);
   font-size: 40px;
