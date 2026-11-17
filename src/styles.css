@@ -171,6 +171,18 @@ section[id] {
   color: var(--bg);
 }
 
+.btn-orange {
+  background: var(--orange);
+  color: var(--bg);
+  border-color: var(--orange);
+}
+
+.btn-orange:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
 .btn-light {
   background: var(--text);
   color: var(--bg);
@@ -239,7 +251,7 @@ a.btn-dashed:hover {
   flex-wrap: wrap;
   align-items: center;
   gap: 32px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -795,50 +807,6 @@ a.btn-dashed:hover {
   font-weight: 600;
 }
 
-.experience {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 16px;
-}
-
-.exp-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.exp-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 32px;
-  padding: 20px 0;
-  border-top: 2px solid var(--line);
-}
-
-.exp-period {
-  flex: 0 0 160px;
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.exp-main {
-  flex: 1 1 360px;
-  min-width: 0;
-}
-
-.exp-main h4 {
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.exp-main p {
-  margin-top: 6px;
-  color: var(--text-muted);
-}
-
 .skills {
   display: flex;
   flex-direction: column;
@@ -848,7 +816,7 @@ a.btn-dashed:hover {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
 }
 
@@ -865,7 +833,7 @@ a.btn-dashed:hover {
   padding: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -901,8 +869,7 @@ a.btn-dashed:hover {
 }
 
 .edu-years {
-  flex: 0 0 auto;
-  min-width: 220px;
+  flex: 0 0 260px;
   white-space: nowrap;
   font-family: var(--font-display);
   font-size: 40px;
@@ -911,7 +878,7 @@ a.btn-dashed:hover {
   line-height: 1.1;
 }
 
-.edu-years .from-accent {
+.edu-years .to-accent {
   color: var(--accent);
 }
 
@@ -1218,13 +1185,20 @@ textarea.field {
   padding-top: 24px;
   padding-bottom: 40px;
   border-top: 1px solid var(--line);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 12px;
   color: var(--text-dim);
   font-size: 15px;
+}
+
+.footer-rights {
+  text-align: center;
+}
+
+.footer-bottom .footer-totop {
+  justify-self: end;
 }
 
 .footer-bottom a {
@@ -1251,7 +1225,17 @@ textarea.field {
   }
 
   .footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 0;
     font-size: 14px;
+  }
+
+  .footer-rights {
+    text-align: left;
+  }
+
+  .footer-bottom .footer-totop {
+    justify-self: start;
   }
 }
 
@@ -1345,58 +1329,47 @@ textarea.field {
   }
 }
 
-/* Hidden by default so the static (reduced-motion) figure matches the design. */
+/* Always on, also when the visitor has asked for reduced motion (site owner's choice). */
 .loop-trace {
-  opacity: 0;
+  animation: loop-trace 2.4s linear infinite;
+}
+
+.loop-beat {
+  animation: loop-beat 2.4s ease-in-out infinite;
+}
+
+.loop-bar {
+  transform-box: fill-box;
+  animation: loop-bar 1.8s ease-in-out infinite alternate;
+}
+
+.loop-car {
+  transform-box: fill-box;
+  animation: loop-car 1.6s ease-in-out infinite alternate;
+}
+
+.loop-speed {
+  stroke-dasharray: 6 5;
+  animation: loop-speed 0.4s linear infinite;
+}
+
+.loop-leave {
+  animation: loop-leave 4s ease-in-out infinite;
+}
+
+.loop-level {
+  animation: loop-level 1.4s ease-in-out infinite alternate;
+}
+
+.loop-bounce {
+  transform-box: fill-box;
+  animation: loop-bounce 1.8s ease-in-out infinite;
 }
 
 .loop-halo {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .loop-trace {
-    opacity: 1;
-    animation: loop-trace 2.4s linear infinite;
-  }
-
-  .loop-beat {
-    animation: loop-beat 2.4s ease-in-out infinite;
-  }
-
-  .loop-bar {
-    transform-box: fill-box;
-    animation: loop-bar 1.8s ease-in-out infinite alternate;
-  }
-
-  .loop-car {
-    transform-box: fill-box;
-    animation: loop-car 1.6s ease-in-out infinite alternate;
-  }
-
-  .loop-speed {
-    stroke-dasharray: 6 5;
-    animation: loop-speed 0.4s linear infinite;
-  }
-
-  .loop-leave {
-    animation: loop-leave 4s ease-in-out infinite;
-  }
-
-  .loop-level {
-    animation: loop-level 1.4s ease-in-out infinite alternate;
-  }
-
-  .loop-bounce {
-    transform-box: fill-box;
-    animation: loop-bounce 1.8s ease-in-out infinite;
-  }
-
-  .loop-halo {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: loop-halo 2.4s ease-out infinite;
-  }
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: loop-halo 2.4s ease-out infinite;
 }
 
 /* ─── Scroll-driven animations ─── */

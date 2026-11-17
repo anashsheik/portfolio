@@ -31,7 +31,7 @@ export const PROJECTS = [
 export const CONTENT = {
   no: {
     meta: {
-      title: "Anas Sheik, Data Science",
+      title: "Anas Sheik",
       langToggle: "Switch to English",
       langCode: "NO",
       menuOpen: "Åpne meny",
@@ -118,25 +118,11 @@ export const CONTENT = {
         ],
         "Ved siden av studiene tester jeg språkmodeller og leter etter mønstre i hvor de tar feil. Derfor bruker jeg AI som et nyttig verktøy, men stoler aldri blindt på svarene. På fritiden blir det fotball, sjakk, Formel 1 og trening.",
       ],
-      experienceTitle: "Erfaring",
-      experience: [
-        {
-          period: "2026",
-          title: "SimulaMet, maskinlæring og helsedata",
-          desc: "Bygget en Python-pipeline og en modell som oppdager hjerteinfarkt i nesten 22 000 EKG-opptak. Jobbet i fem dokumenterte runder så hvert steg kunne etterprøves, og fant og fjernet data som røpet svaret. Sjekket utvalgte opptak for hånd for å se om resultatene ga klinisk mening.",
-        },
-        {
-          period: "2024 til nå",
-          title: "Outlier.ai, AI-trener (deltid)",
-          desc: "Vurderer svar fra språkmodeller innen matematikk, kode og resonnering opp mot faste retningslinjer, finner mønstre i hvor modellene feiler og gir strukturerte tilbakemeldinger som gjør dem mer pålitelige.",
-        },
-      ],
-      skillsTitle: "Ferdigheter",
+      skillsTitle: "Mine ferdigheter",
       skills: [
         { title: "Språk og verktøy", items: ["Python (pandas, scikit-learn)", "SQL", "Java", "Git og GitHub", "Jupyter"] },
         { title: "Data og analyse", items: ["Utforsking og rydding", "Statistisk analyse", "Maskinlæring", "Visualisering", "Kundedata"] },
         { title: "Sky og BI", items: ["Power BI", "Azure", "Databricks"] },
-        { title: "Språk", items: ["Norsk, morsmål", "Engelsk, flytende"] },
       ],
     },
     education: {
@@ -184,6 +170,7 @@ export const CONTENT = {
       pagesAria: "Snarveier",
       findMe: "Finn meg",
       place: "Sted",
+      location: "Norge",
       rights: "Alle rettigheter reservert.",
       toTop: "Til toppen",
     },
@@ -191,7 +178,7 @@ export const CONTENT = {
 
   en: {
     meta: {
-      title: "Anas Sheik, Data Science",
+      title: "Anas Sheik",
       langToggle: "Bytt til norsk",
       langCode: "EN",
       menuOpen: "Open menu",
@@ -278,25 +265,11 @@ export const CONTENT = {
         ],
         "Alongside my studies I test language models and look for patterns in where they go wrong. That is why I use AI as a helpful tool, but never trust its answers blindly. In my spare time it is football, chess, Formula 1 and training.",
       ],
-      experienceTitle: "Experience",
-      experience: [
-        {
-          period: "2026",
-          title: "SimulaMet, machine learning and health data",
-          desc: "Built a Python pipeline and a model that detects heart attacks in almost 22,000 ECG recordings. Worked in five documented rounds so every step could be checked, and found and removed data that gave away the answer. Checked selected recordings by hand to see whether the results made clinical sense.",
-        },
-        {
-          period: "2024 to now",
-          title: "Outlier.ai, AI trainer (part time)",
-          desc: "Evaluate answers from language models in mathematics, code and reasoning against fixed guidelines, find patterns in where the models fail and give structured feedback that makes them more reliable.",
-        },
-      ],
-      skillsTitle: "Skills",
+      skillsTitle: "My skills",
       skills: [
         { title: "Languages and tools", items: ["Python (pandas, scikit-learn)", "SQL", "Java", "Git and GitHub", "Jupyter"] },
         { title: "Data and analysis", items: ["Exploration and cleaning", "Statistical analysis", "Machine learning", "Visualisation", "Customer data"] },
         { title: "Cloud and BI", items: ["Power BI", "Azure", "Databricks"] },
-        { title: "Languages", items: ["Norwegian, native", "English, fluent"] },
       ],
     },
     education: {
@@ -344,6 +317,7 @@ export const CONTENT = {
       pagesAria: "Shortcuts",
       findMe: "Find me",
       place: "Location",
+      location: "Norway",
       rights: "All rights reserved.",
       toTop: "Back to top",
     },

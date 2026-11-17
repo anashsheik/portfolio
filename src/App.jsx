@@ -194,7 +194,7 @@ function Hero({ c }) {
         <a href="#prosjekter" className="btn btn-primary">
           {c.hero.ctaProjects}
         </a>
-        <a href={LINKS.calendly} className="btn btn-outline" {...ext}>
+        <a href={LINKS.calendly} className="btn btn-orange" {...ext}>
           {c.hero.ctaMeeting}
         </a>
       </div>
@@ -322,21 +322,6 @@ function About({ c }) {
             </p>
           ))}
 
-          <div className="experience rv">
-            <h3 className="subhead">{a.experienceTitle}</h3>
-            <ul className="exp-list">
-              {a.experience.map((e) => (
-                <li key={e.title} className="exp-row">
-                  <div className="exp-period">{e.period}</div>
-                  <div className="exp-main">
-                    <h4>{e.title}</h4>
-                    <p>{e.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div id="ferdigheter" className="skills rv">
             <h3 className="subhead">{a.skillsTitle}</h3>
             <div className="skills-grid">
@@ -371,8 +356,8 @@ function Education({ c }) {
           {ed.items.map((item) => (
             <div key={item.degree} className="edu-row rv">
               <div className="edu-years">
-                <span className={item.current ? "from-accent" : undefined}>{item.from}</span>
-                {item.to}
+                {item.from}
+                <span className={item.current ? "to-accent" : undefined}>{item.to}</span>
               </div>
               <div className="edu-main">
                 <h3>{item.degree}</h3>
@@ -539,15 +524,16 @@ function Footer({ c }) {
           <h4>{f.place}</h4>
           <p>
             {Icons.pin(18)}
-            {c.hero.location}
+            {f.location}
           </p>
         </div>
       </div>
       <div className="footer-bottom wrap">
-        <span>
-          © {new Date().getFullYear()} Anas Sheik. {f.rights}
-        </span>
-        <a href="#top">{f.toTop}</a>
+        <span>© {new Date().getFullYear()} Anas Sheik.</span>
+        <span className="footer-rights">{f.rights}</span>
+        <a href="#top" className="footer-totop">
+          {f.toTop}
+        </a>
       </div>
     </footer>
   );
