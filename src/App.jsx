@@ -235,7 +235,7 @@ function Research({ c }) {
             <a href={LINKS.paperCode} className="btn btn-light" {...ext}>
               {r.code}
             </a>
-            <a href={LINKS.zenodo} className="btn btn-outline" {...ext}>
+            <a href={LINKS.zenodo} className="btn btn-light" {...ext}>
               {r.zenodo}
             </a>
             {LINKS.ieee ? (
