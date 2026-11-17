@@ -34,7 +34,7 @@ const ext = { target: "_blank", rel: "noopener noreferrer" };
 
 // Resolve the special link keys used in content.js.
 function resolveHref(href) {
-  if (href === "ieee") return LINKS.ieee || "#forskning";
+  if (href === "ieee") return LINKS.ieee || LINKS.zenodo || "#forskning";
   if (href === "calendly") return LINKS.calendly;
   return href;
 }
@@ -235,8 +235,11 @@ function Research({ c }) {
             <a href={LINKS.paperCode} className="btn btn-light" {...ext}>
               {r.code}
             </a>
+            <a href={LINKS.zenodo} className="btn btn-outline" {...ext}>
+              {r.zenodo}
+            </a>
             {LINKS.ieee ? (
-              <a href={LINKS.ieee} className="btn btn-dashed" {...ext}>
+              <a href={LINKS.ieee} className="btn btn-outline" {...ext}>
                 {r.ieee}
               </a>
             ) : (

@@ -4,13 +4,15 @@
 // Rich text: a paragraph can be an array of strings and link objects,
 // e.g. ["Text before ", { text: "link text", href: "#forskning" }, "."].
 // A link with `href: "ieee"` points to LINKS.ieee once that is set,
-// otherwise it falls back to the research section.
+// otherwise to the Zenodo record, otherwise to the research section.
 
 export const LINKS = {
   github: "https://github.com/anashsheik",
   linkedin: "https://www.linkedin.com/in/anas-h-sheik-b131a5282/",
   calendly: "https://calendly.com/anashsheik/30min",
   paperCode: "https://github.com/anashsheik/ptbxl-mi-features",
+  // The paper on Zenodo.
+  zenodo: "https://zenodo.org/records/22304575",
   // Set this to the IEEE Xplore URL when the paper is published.
   ieee: null,
 };
@@ -60,6 +62,7 @@ export const CONTENT = {
       leadLabel: (lead) => `QRS-kompleks i avledning ${lead}, med toppen markert i blått`,
       explain: "Et EKG måler de elektriske signalene som får hjertet til å slå, og viser dem som en kurve. Jeg lærte en datamaskin å se forskjell på kurver fra friske hjerter og fra folk som har hatt hjerteinfarkt, ved hjelp av tusenvis av ekte, anonyme EKG-er. Så undersøkte jeg hva maskinen faktisk så etter. Svaret var den høye, spisse toppen i midten av hvert hjerteslag, markert i blått, målt på brystet rett foran hjertet. Det stemmer med det leger vet om hvor infarkter ofte skjer.",
       code: "Koden på GitHub",
+      zenodo: "Les artikkelen på Zenodo",
       ieee: "IEEE Xplore",
       ieeeSoon: "IEEE Xplore, kommer",
       ieeeSoonTitle: "Lenken kommer når artikkelen er publisert",
@@ -219,6 +222,7 @@ export const CONTENT = {
       leadLabel: (lead) => `QRS complex in lead ${lead}, with the peak marked in blue`,
       explain: "An ECG measures the electrical signals that make the heart beat, and shows them as a curve. I taught a computer to tell curves from healthy hearts apart from those of people who have had a heart attack, using thousands of real, anonymous ECGs. Then I looked at what the computer was actually looking for. The answer was the tall, sharp peak in the middle of each heartbeat, marked in blue, measured on the chest right in front of the heart. That matches what doctors know about where heart attacks often happen.",
       code: "Code on GitHub",
+      zenodo: "Read the paper on Zenodo",
       ieee: "IEEE Xplore",
       ieeeSoon: "IEEE Xplore, coming soon",
       ieeeSoonTitle: "The link will be added when the paper is published",
